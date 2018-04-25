@@ -1,0 +1,56 @@
+.button {
+  @extend .btn;
+
+  // Alternate
+
+  @each $color, $value in $theme-colors {
+    &--#{$color} {
+      @include button-variant($value, $value);
+    }
+  }
+
+  @each $color, $value in $theme-colors {
+    &--outline-#{$color} {
+      @include button-outline-variant($value);
+    }
+  }
+
+  // Link
+
+  &--link {
+    @extend .btn-link;
+  }
+
+  // Icon
+  &--icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 2.25rem;
+    width: 2.25rem;
+    padding: 0;
+
+    svg {
+      height: 1rem;
+      width: auto;
+      fill: $white;
+    }
+  }
+
+  // Block
+
+  &--block {
+    @extend .btn-block;
+  }
+
+  // Sizes
+
+  &--lg {
+    @extend .btn-lg;
+  }
+
+  &--sm {
+    @extend .btn-sm;
+  }
+}
